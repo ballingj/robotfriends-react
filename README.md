@@ -27,3 +27,6 @@ Updating: An update can be caused by changes to props or state.  These methods a
 3) componentWillUpdate()
 4) render()
 5) componentDidUpdate()
+
+![alt text](readme-img/image.png)
+

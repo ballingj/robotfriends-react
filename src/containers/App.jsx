@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import reactLogo from '/logo/react.svg'
 import viteLogo from '/logo/vite.svg'
 import './App.css'
-import CardList from './CardList'
-import SearchBox from './SearchBox'
-import Scroll from './Scroll'
+import CardList from '../components/CardList'
+import SearchBox from '../components/SearchBox'
+import Scroll from '../components/Scroll'
 // import { robots } from './robots'
 
 
@@ -29,19 +29,19 @@ class App extends Component {
   }
 
   onSearchChange = (event) => {
-    this.setState({searchfield: event.target.value });
-    
+    this.setState({ searchfield: event.target.value });
+
     // console.log(filteredRobots)
   }
 
-  render() {    
-    const filteredRobots = this.state.robots.filter(robot => {
-      return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
+  render() {
+    const { robots, searchfield } = this.state;
+    const filteredRobots = robots.filter(robot => {
+      return robot.name.toLowerCase().includes(searchfield.toLowerCase())
     })
-    if (!this.state.robots.length) {
-      return <h1>Loading...</h1>
-    } else {
-      return (
+    return !robots.length ?
+      <h1>Loading...</h1> :
+      (
         <>
           <div>
             {/* <a href="https://vite.dev" target="_blank">
@@ -51,14 +51,13 @@ class App extends Component {
               <img src={reactLogo} className="logo react" alt="React logo" />
             </a> */}
             <h1 className="robofriend">RobotFriends</h1>
-            <SearchBox searchChange={this.onSearchChange}/>
+            <SearchBox searchChange={this.onSearchChange} />
           </div>
           <Scroll>
             <CardList robots={filteredRobots} />
           </Scroll>
         </>
       )
-    }
   }
 }
 
