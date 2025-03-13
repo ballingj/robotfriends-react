@@ -44,3 +44,77 @@ Updating: An update can be caused by changes to props or state.  These methods a
   - run audit again `npm audit`
 6) Always review the changes before running `npm audit fix --force` !
 
+
+### Deploy to GH
+
+1) Step 1: Initialize Git Repository
+Run the following commands to initialize a git repository in your Vite app and push your existing code to a remote repository on GitHub.
+``` sh
+$ git init
+$ git add .
+$ git commit -m "initial-commit"
+$ git branch -M main
+$ git remote add origin http://github.com/{username}/{repo-name}.git
+$ git push -u origin main
+```
+
+2) Step 2: Update vite.config.js
+Add the base URL in this file by setting the base as “/{repo-name}/”. For example, if your repository’s name is book-landing-page then set the base like this:
+
+``` javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: "/book-landing-page/"
+})
+```
+3) Step 3: Install gh-pages
+Install gh-pages package as a dev dependency.
+``` sh
+npm install gh-pages --save-dev
+```
+
+4) Step 4: Update package.json
+Update package.json with the following predeploy and deploy scripts.
+
+``` js
+"scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
+    ...
+}
+```
+
+Add the complete website URL by setting homepage in package.json
+`"homepage": "https://{username}.github.io/{repo-name}/"`
+
+Thus, your updated package.json will look like this:
+``` js
+{
+  "name": "book-product",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://aishwaryaparab.github.io/book-landing-page/",
+  "type": "module",
+  "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
+    "dev": "vite",
+    "build": "vite build",
+    ...
+}
+```
+
+5) Step 5: Run Deploy
+If you’ve made it till here, you’re almost there. Run the final command:
+
+`npm run deploy`
+
+
+6) One last step though!
+
+Navigate to your remote repository on GitHub -> Settings -> Pages (left sidebar). Select source as “Deploy from branch” and branch as “gh-pages”.
+
