@@ -43,7 +43,7 @@ class App extends Component {
       <h1>Loading...</h1> :
       (
         <>
-          <div>
+          <div className="title">
             {/* <a href="https://vite.dev" target="_blank">
               <img src={viteLogo} className="logo" alt="Vite logo" />
             </a>

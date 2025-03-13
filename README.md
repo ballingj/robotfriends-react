@@ -12,7 +12,7 @@ https://github.com/aneagoie/robofriends-hooks/blob/master/src/containers/App.js
 
 
 
-LifeCycle methods:
+## LifeCycle methods:
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 Mounting:  these methods are called when an instance of a component is being created and inserted into the DOM:
@@ -29,4 +29,18 @@ Updating: An update can be caused by changes to props or state.  These methods a
 5) componentDidUpdate()
 
 ![alt text](readme-img/image.png)
+
+
+### Keeping the project up to date
+1) Clone the repo
+2) run `npm install`
+  - look for vulnerabilities
+3) run `npm audit fix`
+  - this will fix the vulnerabilities (up to a point of breaking changes)
+  - breaking changes must be fixed manually
+4) run `npm audit`
+  - run an audit of remaining vulnerabilities or issues
+5) Before doing a `npm audit fix --force`, run a `npm update`
+  - run audit again `npm audit`
+6) Always review the changes before running `npm audit fix --force` !
 
