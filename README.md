@@ -44,8 +44,28 @@ Updating: An update can be caused by changes to props or state.  These methods a
 6) Always review the changes before running `npm audit fix --force` !
 
 
-### Deploy to GH
+### Converting from create-react-app to vite
+After initial deployment, and a few months or even some years have gone by, you should update your application
 
+1) Clone the repo and create a new project within the current folder
+  `npm create vite@latest`
+2) name the project `robofriend2`
+3) select framework `react`
+4) select a variant `javascript`
+5) change to new project directory `cd robofriends2`
+6) `npm install`
+7) Copy all the relevant files
+  - index.js  -> main.jsx
+  - index.css -> index.css
+  - components folder -> components folder
+  - containers folder -> containers folder
+  - rename all *.js  to *.jsx
+8) `npm run dev`
+
+Everything should still work!
+
+
+### Deploy to GH
 1) Step 1: Initialize Git Repository
 Run the following commands to initialize a git repository in your Vite app and push your existing code to a remote repository on GitHub.
 ``` sh
