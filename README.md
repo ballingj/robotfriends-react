@@ -1,5 +1,4 @@
-Please have these 3 repos open during the next React sections. If you ever get stuck, you can look at my code for these 3 versions:
-
+Code for three (3) versions of React:
 
 Robofriends (React v18 & Create React App) - this is the one we will use at the beginning.
 https://github.com/aneagoie/robofriends/blob/master/src/containers/App.js
